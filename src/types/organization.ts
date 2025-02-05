@@ -1,6 +1,4 @@
-import { ObjectId } from 'mongodb';
 import { BaseEntity } from './common';
-import { OrganizationSettings } from './settings';
 
 export interface Organization extends BaseEntity {
   name: string;
@@ -11,3 +9,7 @@ export interface Organization extends BaseEntity {
   created_by_user?: string;
   created_by_service?: string;
 } 
+
+export interface OrganizationSettings {
+  warehouse_module: boolean;
+}

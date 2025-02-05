@@ -2,9 +2,6 @@ import { ObjectId } from 'mongodb';
 
 // Status Types
 export type ProjectStatus = 'active' | 'inactive' | 'deleted';
-export type OrderStatus = 'pending' | 'processing' | 'completed' | 'cancelled' | 'deleted';
-export type PaymentStatus = 'pending' | 'paid' | 'failed' | 'refunded';
-export type PaymentMethod = 'credit_card' | 'cash' | 'bank_transfer' | 'digital_wallet';
 
 // Common Base Types
 export interface BaseEntity {

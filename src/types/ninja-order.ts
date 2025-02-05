@@ -1,5 +1,6 @@
 import { BaseEntity } from './common';
-import { OrderStatus, PaymentStatus, PaymentMethod } from './common';
+
+export type OrderStatus = 'pending' | 'processing' | 'completed' | 'cancelled' | 'deleted';
 
 export interface OrderItem {
   name: string;
@@ -17,7 +18,5 @@ export interface NinjaOrder extends BaseEntity {
   items: OrderItem[];
   total_amount: number;
   status: OrderStatus;
-  payment_status: PaymentStatus;
-  payment_method: PaymentMethod;
   notes?: string;
 } 
