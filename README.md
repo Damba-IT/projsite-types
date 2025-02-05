@@ -29,27 +29,26 @@ yarn add damba-it/projsite-types#master
 ## Usage
 
 ```typescript
-// Import types
-import { Organization, Project } from '@projsite/types';
-import { OrganizationSettings, ProjectSettings } from '@projsite/types';
+// Import domain types
+import type { Organization, Project } from '@projsite/types/types';
 
-// Import schemas (if using zod validation)
-import { organizationSchema, projectSchema } from '@projsite/types/schemas';
+// Import schemas and their types
+import { createOrganizationSchema, type CreateOrganizationInput } from '@projsite/types/schemas';
+import { createProjectSchema, type CreateProjectInput } from '@projsite/types/schemas';
 ```
 
 ## Structure
 
 - `/types` - TypeScript interfaces and types
-  - `/common` - Shared types and enums
-  - `/organization` - Organization related types
-  - `/project` - Project related types
-  - `/settings` - Settings interfaces
-  - `/validation` - Form validation rules
+  - `common.ts` - Base types, enums, and shared interfaces
+  - `organization.ts` - Organization related types
+  - `project.ts` - Project related types
+  - `ninja-order.ts` - Order related types
 
 - `/schemas` - Zod validation schemas
-  - `/organization` - Organization schemas
-  - `/project` - Project schemas
-  - `/ninja-orders` - Ninja order schemas
+  - `organizations.ts` - Organization schemas
+  - `projects.ts` - Project schemas
+  - `ninja-orders.ts` - Order schemas
 
 ## Development
 
@@ -74,6 +73,8 @@ npm run build
 
 - Node.js >= 18
 - TypeScript >= 5.0
+- Zod >= 3.0 (peer dependency)
+- MongoDB >= 6.0 (peer dependency)
 
 ## License
 
