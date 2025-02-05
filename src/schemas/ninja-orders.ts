@@ -1,33 +1,29 @@
-import { z } from 'zod';
 import { ObjectId } from 'mongodb';
+import { z } from 'zod';
 
-const orderItemSchema = z.object({
-  name: z.string().min(1, 'Item name is required'),
-  quantity: z.number().positive('Quantity must be positive'),
-  price: z.number().positive('Price must be positive'),
-  subtotal: z.number().positive('Subtotal must be positive')
-});
+export const ninjaOrderStatusEnum = z.enum(['pending', 'processing', 'completed', 'cancelled', 'deleted'] as const);
+export type NinjaOrderStatus = z.infer<typeof ninjaOrderStatusEnum>;
 
-export const createOrderSchema = z.object({
-  order_number: z.string(),
-  customer_name: z.string().min(1, 'Customer name is required'),
-  customer_email: z.string().email('Invalid email address'),
-  customer_phone: z.string().min(1, 'Phone number is required'),
-  delivery_address: z.string().min(1, 'Delivery address is required'),
-  items: z.array(orderItemSchema).min(1, 'At least one item is required'),
-  total_amount: z.number().positive('Total amount must be positive'),
-  payment_status: z.enum(['pending', 'paid', 'failed', 'refunded']),
-  payment_method: z.enum(['credit_card', 'cash', 'bank_transfer', 'digital_wallet']),
+export const createNinjaOrderSchema = z.object({
+  service_type: z.string(),
+  organization_id: z.string(),
+  status: ninjaOrderStatusEnum.default('pending'),
+  total_cost: z.number().positive('Total cost must be positive'),
   notes: z.string().optional(),
-  created_by: z.string()
+  metadata: z.record(z.any()).optional(),
+  created_by_user: z.string(),
+  created_by_service: z.string(),
+  created_at: z.date().default(new Date()),
+  updated_at: z.date().default(new Date()),
 });
 
-export const updateOrderSchema = createOrderSchema
+export const updateNinjaOrderSchema = createNinjaOrderSchema
   .partial()
   .extend({
-    status: z.enum(['pending', 'processing', 'completed', 'cancelled']).optional(),
+    _id: z.instanceof(ObjectId),
+    status: ninjaOrderStatusEnum.exclude(['deleted']).optional(),
     last_modified_by: z.string()
   });
 
-export type CreateOrderInput = z.infer<typeof createOrderSchema>;
-export type UpdateOrderInput = z.infer<typeof updateOrderSchema>; 
+export type CreateNinjaOrderInput = z.infer<typeof createNinjaOrderSchema>;
+export type UpdateNinjaOrderInput = z.infer<typeof updateNinjaOrderSchema>; 

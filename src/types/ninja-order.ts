@@ -1,22 +1,13 @@
+import { ObjectId } from 'mongodb';
 import { BaseEntity } from './common';
-
-export type OrderStatus = 'pending' | 'processing' | 'completed' | 'cancelled' | 'deleted';
-
-export interface OrderItem {
-  name: string;
-  quantity: number;
-  price: number;
-  subtotal: number;
-}
+import type { NinjaOrderStatus } from '../schemas/ninja-orders';
 
 export interface NinjaOrder extends BaseEntity {
-  order_number: string;
-  customer_name: string;
-  customer_email: string;
-  customer_phone: string;
-  delivery_address: string;
-  items: OrderItem[];
-  total_amount: number;
-  status: OrderStatus;
+  _id: ObjectId;
+  service_type: string;
+  organization_id: string;
+  status: NinjaOrderStatus;
+  total_cost: number;
   notes?: string;
+  metadata?: Record<string, unknown>;
 } 
