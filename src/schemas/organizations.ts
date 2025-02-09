@@ -19,5 +19,5 @@ export const updateOrganizationSchema = createOrganizationSchema
     last_modified_by: z.string()
   });
 
-export type CreateOrganizationInput = z.infer<typeof createOrganizationSchema>;
-export type UpdateOrganizationInput = z.infer<typeof updateOrganizationSchema>; 
+export type CreateOrganization = z.infer<typeof createOrganizationSchema>;
+export type UpdateOrganization = z.infer<typeof updateOrganizationSchema>; 

@@ -33,8 +33,8 @@ yarn add damba-it/projsite-types#master
 import type { Organization, Project } from '@projsite/types/types';
 
 // Import schemas and their types
-import { createOrganizationSchema, type CreateOrganizationInput } from '@projsite/types/schemas';
-import { createProjectSchema, type CreateProjectInput } from '@projsite/types/schemas';
+import { createOrganizationSchema, type CreateOrganization } from '@projsite/types/schemas';
+import { createProjectSchema, type CreateProject } from '@projsite/types/schemas';
 ```
 
 ## Structure

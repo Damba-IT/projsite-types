@@ -60,5 +60,5 @@ export const updateProjectSchema = createProjectSchema
     last_modified_by: z.string()
   });
 
-export type CreateProjectInput = z.infer<typeof createProjectSchema>;
-export type UpdateProjectInput = z.infer<typeof updateProjectSchema>; 
+export type CreateProject = z.infer<typeof createProjectSchema>;
+export type UpdateProject = z.infer<typeof updateProjectSchema>; 
