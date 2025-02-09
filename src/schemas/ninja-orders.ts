@@ -12,7 +12,7 @@ export const createNinjaOrderSchema = z.object({
   total_cost: z.number().positive('Total cost must be positive'),
   notes: z.string().optional(),
   created_by_user: z.string().optional(),
-  created_by_service: z.enum(['web', 'mobile', "public_web"]),
+  created_by_service: z.enum(['web', 'mobile', "public_web"]).optional(),
 });
 
 export const updateNinjaOrderSchema = createNinjaOrderSchema
