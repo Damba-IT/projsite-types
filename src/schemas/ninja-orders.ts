@@ -6,13 +6,13 @@ export type NinjaOrderStatus = z.infer<typeof ninjaOrderStatusEnum>;
 
 export const createNinjaOrderSchema = z.object({
   service_type: z.string(),
+  service_form_values: z.record(z.any()),
   company_id: z.string(),
   status: ninjaOrderStatusEnum.default('pending'),
   total_cost: z.number().positive('Total cost must be positive'),
   notes: z.string().optional(),
-  service_form_values: z.record(z.any()).optional(),
-  created_by_user: z.string(),
-  created_by_service: z.enum(['web', 'mobile']),
+  created_by_user: z.string().optional(),
+  created_by_service: z.enum(['web', 'mobile', "public_web"]),
 });
 
 export const updateNinjaOrderSchema = createNinjaOrderSchema
