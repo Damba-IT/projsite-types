@@ -4,6 +4,10 @@
   "description": "Shared TypeScript types and schemas for Projsite applications",
   "private": true,
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "./types": {
       "types": "./dist/types/index.d.ts",
       "default": "./dist/types/index.js"
