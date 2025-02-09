@@ -5,11 +5,19 @@ export default defineConfig({
     'src/types/index.ts',
     'src/schemas/index.ts'
   ],
-  format: ['cjs', 'esm'],
-  dts: true,
+  format: ['esm'],
+  dts: {
+    compilerOptions: {
+      moduleResolution: "node",
+      skipLibCheck: true,
+      types: ["node"]
+    }
+  },
   splitting: false,
   sourcemap: true,
   clean: true,
   treeshake: true,
   minify: false,
+  target: 'node18',
+  platform: 'node'
 }); 

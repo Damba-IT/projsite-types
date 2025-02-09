@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "description": "Shared TypeScript types and schemas for Projsite applications",
   "private": true,
+  "type": "module",
+  "main": "./dist/types/index.js",
+  "module": "./dist/types/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     "./types": {
       "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
       "default": "./dist/types/index.js"
     },
     "./schemas": {
       "types": "./dist/schemas/index.d.ts",
+      "import": "./dist/schemas/index.js",
       "default": "./dist/schemas/index.js"
     }
   },
