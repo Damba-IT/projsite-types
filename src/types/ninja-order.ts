@@ -1,5 +1,5 @@
 import { BaseEntity } from './common';
-import type { NinjaOrderStatus } from '../schemas/ninja-orders';
+import type { NinjaOrderCreatedByService, NinjaOrderStatus } from '../schemas/ninja-orders';
 
 export interface NinjaOrder extends BaseEntity {
   service_type: string;
@@ -8,4 +8,5 @@ export interface NinjaOrder extends BaseEntity {
   status: NinjaOrderStatus;
   total_cost: number;
   notes?: string;
+  created_by_service: NinjaOrderCreatedByService;
 } 
