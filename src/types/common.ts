@@ -9,6 +9,5 @@ export interface BaseEntity {
   created_at: Date;
   updated_at: Date;
   created_by_user?: string;
-  created_by_service?: string;
   last_modified_by?: string;
 } 
