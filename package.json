@@ -21,6 +21,12 @@
       "default": "./dist/schemas/index.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "schemas": ["./dist/schemas"],
+      "types": ["./dist/types"]
+    }
+  },
   "files": [
     "dist",
     "README.md"
