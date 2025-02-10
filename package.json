@@ -1,8 +1,8 @@
 {
-  "name": "@projsite/types",
+  "name": "projsite-types",
   "version": "0.1.0",
   "description": "Shared TypeScript types and schemas for Projsite applications",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "./dist/types/index.js",
   "module": "./dist/types/index.js",
